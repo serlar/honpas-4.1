@@ -1,0 +1,273 @@
+digraph honpas_changes {
+
+  /* Layout */
+  graph [rankdir="LR", style="dotted", color="gray40", fontcolor="gray40", fontname="Helvetica"];
+  node [shape="box", style="filled", fillcolor="white", fontname="Helvetica"];
+  edge [color="midnightblue", fontname="Helvetica"];
+
+  /* SIESTA 4.1b3 */
+  subgraph cluster_0 {
+    label = "SIESTA 4.1b3";
+
+    node [fillcolor="gray95"];
+
+    s41mf [label="Makefile", shape="component"];
+    s41s0 [label="atm_types.f"];
+    s41s1 [label="atom.f"];
+    s41s2 [label="broadcast_basis.F"];
+    s41s3 [label="dhscf.F"];
+    s41s4 [label="extrae_eventllist.F90"];
+    s41s5 [label="initatom.f"];
+    s41s6 [label="initparallel.F"];
+    s41s7 [label="mneighb.f"];
+    s41s8 [label="rdiag_elpa.F"];
+    s41s9 [label="struct_init.F"];
+    s41sa [label="xc.f"];
+    s41x0 [label="XC/atomxc.F90", shape="octagon"];
+    s41x1 [label="XC/ggaxc.f", shape="octagon"];
+    s41x2 [label="XC/makefile", shape="component"];
+    s41x3 [label="XC/siestaXC.files", shape="component"];
+    s41rd [label="README.md", shape="component", style="invis"];
+    s4100 [label="cell_pbc.F90", style="invis"];
+    s4101 [label="erf_fn.F", style="invis"];
+    s4102 [label="gamma.F", style="invis"];
+    s4103 [label="hfx_pair_list_methods.F", style="invis"];
+    s4104 [label="hsexc.f", style="invis"];
+    s4105 [label="mathconstants.F", style="invis"];
+    s4106 [label="nao2gto_contract_eri.F90", style="invis"];
+    s41n0 [label="nao2gto_data.F90", style="invis"];
+    s4107 [label="nao2gto_eri.F90", style="invis"];
+    s4108 [label="nao2gto_extend_indx.F90", style="invis"];
+    s4109 [label="nao2gto_fit.F90", style="invis"];
+    s4110 [label="nao2gto_fit_fcn.F90", style="invis"];
+    s4111 [label="nao2gto_full_DM.F90", style="invis"];
+    s4112 [label="nao2gto_gamma_F.F90", style="invis"];
+    s4113 [label="nao2gto_hfx_potential.F90", style="invis"];
+    s4114 [label="nao2gto_index.F90", style="invis"];
+    s4115 [label="nao2gto_kinds.F90", style="invis"];
+    s4116 [label="nao2gto_libint_wrapper.F90", style="invis"];
+    s4117 [label="nao2gto_libint_wrapper_types.F90", style="invis"];
+    s4118 [label="nao2gto_mathconstants.F90", style="invis"];
+    s4119 [label="nao2gto_prescreen.F90", style="invis"];
+    s4120 [label="nao2gto_primitive_eri.F90", style="invis"];
+    s4121 [label="nao2gto_transfer_m.F90", style="invis"];
+    s41n1 [label="nao2gto_transform.F90", style="invis"];
+    s4122 [label="nao2gto_types.F90", style="invis"];
+    s4123 [label="nao2gto_update_hfx.F90", style="invis"];
+    s41n2 [label="nao2gto_utils.F90", style="invis"];
+    s4124 [label="pbe0xc.f", style="invis"];
+    s4125 [label="t_c_g0.F90", style="invis"];
+    s4126 [label="xc_xwpbe.F90", style="invis"];
+  }
+
+  /* November 2017 */
+  subgraph cluster_1 {
+    label = "November 2017";
+
+    node [fillcolor="white"];
+
+    novmf [label="Makefile", shape="component", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs0 [label="atm_types.f", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs1 [label="atom.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs2 [label="broadcast_basis.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs3 [label="dhscf.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs4 [label="extrae_eventllist.F90", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs5 [label="initatom.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs6 [label="initparallel.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs7 [label="mneighb.f", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs8 [label="rdiag_elpa.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novs9 [label="struct_init.F", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novsa [label="xc.f", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novx0 [label="XC/atomxc.F90", shape="octagon", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novx1 [label="XC/ggaxc.f", shape="octagon", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novx2 [label="XC/makefile", shape="component", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novx3 [label="XC/siestaXC.files", shape="component", fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+    novrd [label="README.md", shape="component", style="invis"];
+    nov00 [label="cell_pbc.F90"];
+    nov01 [label="erf_fn.F"];
+    nov02 [label="gamma.F"];
+    nov03 [label="hfx_pair_list_methods.F"];
+    nov04 [label="hsexc.f"];
+    nov05 [label="mathconstants.F"];
+    nov06 [label="nao2gto_contract_eri.F90"];
+    novn0 [label="nao2gto_data.F90", style="invis"];
+    nov07 [label="nao2gto_eri.F90"];
+    nov08 [label="nao2gto_extend_indx.F90"];
+    nov09 [label="nao2gto_fit.f90"];
+    nov10 [label="nao2gto_fit_fcn.f90"];
+    nov11 [label="nao2gto_full_DM.F90"];
+    nov12 [label="nao2gto_gamma_F.F90"];
+    nov13 [label="nao2gto_hfx_potential.F90", style="dashed,filled"];
+    nov14 [label="nao2gto_index.F90"];
+    nov15 [label="nao2gto_kinds.F90"];
+    nov16 [label="nao2gto_libint_wrapper.F90"];
+    nov17 [label="nao2gto_libint_wrapper_types.F90"];
+    nov18 [label="nao2gto_mathconstants.F90"];
+    nov19 [label="nao2gto_prescreen.F90"];
+    nov20 [label="nao2gto_primitive_eri.F90"];
+    nov21 [label="nao2gto_transfer_m.F90"];
+    novn1 [label="nao2gto_transform.F90", style="invis"];
+    nov22 [label="nao2gto_types.F90"];
+    nov23 [label="nao2gto_update_hfx.F90"];
+    novn2 [label="nao2gto_utils.F90", style="invis"];
+    nov24 [label="pbe0xc.f"];
+    nov25 [label="t_c_g0.F90"];
+    nov26 [label="xc_xwpbe.F90"];
+  }
+
+  /* January 2018 */
+  subgraph cluster_2 {
+    label = "January 2018";
+
+    node [fillcolor="lightskyblue1", color="midnightblue", fontcolor="midnightblue"];
+
+    janmf [label="Makefile", shape="component"];
+    jans0 [label="atm_types.f"];
+    jans1 [label="atom.F"];
+    jans2 [label="broadcast_basis.F"];
+    jans3 [label="dhscf.F"];
+    jans4 [label="extrae_eventllist.F90"];
+    jans5 [label="initatom.f"];
+    jans6 [label="initparallel.F"];
+    jans7 [label="mneighb.f"];
+    jans8 [label="rdiag_elpa.F"];
+    jans9 [label="struct_init.F"];
+    jansa [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    janx0 [label="XC/atomxc.F90"];
+    janx1 [label="XC/ggaxc.f"];
+    janx2 [label="XC/makefile", shape="component"];
+    janx3 [label="XC/siestaXC.files", shape="component"];
+    janrd [label="README.md", shape="component", fillcolor="palegreen", color="darkgreen", fontcolor="darkgreen"];
+    jan00 [label="nao2gto_pbc.F90"];
+    jan01 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan02 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan03 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan04 [label="XC/hsexc.f", shape="octagon"];
+    jan05 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan06 [label="nao2gto_contract.F90"];
+    jann0 [label="nao2gto_data.F90", fillcolor="palegreen", color="darkgreen", fontcolor="darkgreen"];
+    jan07 [label="nao2gto_eri.F90", style="invis"];
+    jan08 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan09 [label="nao2gto_fit.F90"];
+    jan10 [label="nao2gto_fit_fcn.f90", style="invis"];
+    jan11 [label="nao2gto_dm.F90"];
+    jan12 [label="nao2gto_gamma_F.F90", style="invis"];
+    jan13 [label="nao2gto_hfx_potential.F90", style="invis"];
+    jan14 [label="nao2gto_index.F90"];
+    jan15 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan16 [label="nao2gto_libint.F90"];
+    jan17 [label="nao2gto_libint_wrapper_types.F90", style="invis"];
+    jan18 [label="nao2gto_mathconstants.F90", style="invis"];
+    jan19 [label="nao2gto_prescreen.F90"];
+    jan20 [label="nao2gto_primitive.F90"];
+    jan21 [label="nao2gto_io.F90"];
+    jann1 [label="nao2gto_transform.F90", fillcolor="palegreen", color="darkgreen", fontcolor="darkgreen"];
+    jan22 [label="nao2gto_types.F90"];
+    jan23 [label="nao2gto_hfx.F90"];
+    jann2 [label="nao2gto_utils.F90", fillcolor="palegreen", color="darkgreen", fontcolor="darkgreen"];
+    jan24 [label="XC/pbe0xc.f", shape="octagon"];
+    jan25 [label="Trash", shape="oval", style="dashed,filled", fillcolor="pink", color="red4", fontcolor="red4"];
+    jan26 [label="XC/xc_xwpbe.F90", shape="octagon"];
+  }
+
+  /* SIESTA 4.1b3 -> November 2017 */
+  s41mf -> novmf;
+  s41s0 -> novs0;
+  s41s1 -> novs1;
+  s41s2 -> novs2;
+  s41s3 -> novs3;
+  s41s4 -> novs4;
+  s41s5 -> novs5;
+  s41s6 -> novs6;
+  s41s7 -> novs7;
+  s41s8 -> novs8;
+  s41s9 -> novs9;
+  s41sa -> novsa;
+  s41x0 -> novx0;
+  s41x1 -> novx1;
+  s41x2 -> novx2;
+  s41x3 -> novx3;
+  s41rd -> novrd [style="invis"];
+  s4100 -> nov00 [style="invis"];
+  s4101 -> nov01 [style="invis"];
+  s4102 -> nov02 [style="invis"];
+  s4103 -> nov03 [style="invis"];
+  s4104 -> nov04 [style="invis"];
+  s4105 -> nov05 [style="invis"];
+  s4106 -> nov06 [style="invis"];
+  s41n0 -> novn0 [style="invis"];
+  s4107 -> nov07 [style="invis"];
+  s4108 -> nov08 [style="invis"];
+  s4109 -> nov09 [style="invis"];
+  s4110 -> nov10 [style="invis"];
+  s4111 -> nov11 [style="invis"];
+  s4112 -> nov12 [style="invis"];
+  s4113 -> nov13 [style="invis"];
+  s4114 -> nov14 [style="invis"];
+  s4115 -> nov15 [style="invis"];
+  s4116 -> nov16 [style="invis"];
+  s4117 -> nov17 [style="invis"];
+  s4118 -> nov18 [style="invis"];
+  s4119 -> nov19 [style="invis"];
+  s4120 -> nov20 [style="invis"];
+  s4121 -> nov21 [style="invis"];
+  s4122 -> nov22 [style="invis"];
+  s4123 -> nov23 [style="invis"];
+  s4124 -> nov24 [style="invis"];
+  s4125 -> nov25 [style="invis"];
+  s4126 -> nov26 [style="invis"];
+
+  /* November 2017 -> January 2018 */
+  novmf -> janmf;
+  novs0 -> jans0;
+  novs1 -> jans1;
+  novs2 -> jans2;
+  novs3 -> jans3;
+  novs4 -> jans4;
+  novs5 -> jans5;
+  novs6 -> jans6;
+  novs7 -> jans7;
+  novs8 -> jans8;
+  novs9 -> jans9;
+  novsa -> jansa;
+  novx0 -> janx0;
+  novx1 -> janx1;
+  novx2 -> janx2;
+  novx3 -> janx3;
+  novrd -> janrd [style="invis"];
+  nov00 -> jan00;
+  nov01 -> jan01 [style="dashed", color="red4"];
+  nov02 -> jan02 [style="dashed", color="red4"];
+  nov03 -> jan03 [style="dashed", color="red4"];
+  nov04 -> jan04;
+  nov05 -> jan05 [style="dashed", color="red4"];
+  nov06 -> jan06;
+  novn0 -> jann0 [style="invis"];
+  nov07 -> jan07 [style="invis"];
+  nov08 -> jan08 [style="dashed", color="red4"];
+  nov09 -> jan09;
+  nov10 -> jan09;
+  nov10 -> jan10 [style="invis"];
+  nov11 -> jan11;
+  nov12 -> jan12 [style="invis"];
+  nov12 -> jann2 [color="darkgreen"];
+  nov13 -> jan13 [style="invis"];
+  nov13 -> jan19 [color="darkgreen"];
+  nov13 -> jann0 [color="darkgreen"];
+  nov14 -> jan14;
+  nov15 -> jan15 [style="dashed", color="red4"];
+  nov16 -> jan16;
+  nov17 -> jan16;
+  nov17 -> jan17 [style="invis"];
+  nov18 -> jan18 [style="invis"];
+  nov19 -> jan19;
+  nov20 -> jan20;
+  nov21 -> jan21;
+  nov21 -> jann1 [color="darkgreen"];
+  nov22 -> jan22;
+  nov22 -> jann0 [color="darkgreen"];
+  nov23 -> jan23;
+  nov24 -> jan24;
+  nov25 -> jan25 [style="dashed", color="red4"];
+  nov26 -> jan26;
+}

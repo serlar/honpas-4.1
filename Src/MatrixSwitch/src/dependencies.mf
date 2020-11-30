@@ -1,0 +1,29 @@
+MatrixSwitch.$(LTOBJEXT): \
+  MatrixSwitch_ops.$(LTOBJEXT) \
+  MatrixSwitch_mm_multiply.$(LTOBJEXT) \
+  MatrixSwitch_m_add.$(LTOBJEXT) \
+  MatrixSwitch_m_set.$(LTOBJEXT) \
+  MatrixSwitch_m_copy.$(LTOBJEXT) \
+  MatrixSwitch_m_register.$(LTOBJEXT)
+
+MatrixSwitch_wrapper.$(LTOBJEXT): \
+  MatrixSwitch.$(LTOBJEXT) \
+  MatrixSwitch_wrapper_params.$(LTOBJEXT)
+
+MatrixSwitch_wrapper_params.$(LTOBJEXT): \
+  MatrixSwitch.$(LTOBJEXT)
+
+MatrixSwitch_m_add.$(LTOBJEXT): \
+  MatrixSwitch_ops.$(LTOBJEXT)
+
+MatrixSwitch_m_copy.$(LTOBJEXT): \
+  MatrixSwitch_ops.$(LTOBJEXT)
+
+MatrixSwitch_mm_multiply.$(LTOBJEXT): \
+  MatrixSwitch_ops.$(LTOBJEXT)
+
+MatrixSwitch_m_register.$(LTOBJEXT): \
+  MatrixSwitch_ops.$(LTOBJEXT)
+
+MatrixSwitch_m_set.$(LTOBJEXT): \
+  MatrixSwitch_ops.$(LTOBJEXT)

@@ -1,0 +1,10 @@
+These are examples of computation of the Magnetic Anisotropy Energy (MAE)
+and other checks for two systems: a Pt dimer, and a FePt bulk structure.
+
+Note that to run the tests automatically you have to move a specific directory
+one level up in the hierarchy:
+
+  mv offsite_SOC_FePt_xz ..
+  cd ../offsite_SOC_FePt_xz
+  make
+

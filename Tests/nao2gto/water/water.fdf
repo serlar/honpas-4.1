@@ -1,0 +1,46 @@
+SystemName          Water molecule
+SystemLabel         h2o
+
+Numberofspecies       2
+
+NumberOfAtoms           3
+LatticeConstant   15.0000000000000      Ang
+%block LatticeParameters
+    1.0 1.0 1.0 90 90 90
+%endblock LatticeParameters
+AtomicCoordinatesFormat    Ang
+
+%block AtomicCoordinatesAndAtomicSpecies
+     0.00000000    0.00000000    0.00000000     1  O
+     0.75700000    0.58600000    0.00000000     2  H
+    -0.75700000    0.58600000    0.00000000     2  H
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%block ChemicalSpeciesLabel
+ 1  8  O      # Species index, atomic number, species label
+ 2  1  H
+%endblock ChemicalSpeciesLabel
+
+PAO.BasisSize             SZ
+
+xc.functional     GGA     # Default value
+xc.authors        HSE06   # Default value
+
+MeshCutoff  150 Ry
+
+SolutionMethod          diagon
+
+DM.MixingWeight         0.3
+DM.NumberPulay          3
+
+MD.TypeOfRun            cg          # Type of dynamics:
+MD.NumCGsteps    0
+#MD.VariableCell  .true.
+MD.MaxForceTol 0.01 eV/Ang
+WriteMDXmol   .true.
+WriteForces  .true.
+WriteCoorStep
+
+%include hse.fdf
+
+%include nao2gto.fdf

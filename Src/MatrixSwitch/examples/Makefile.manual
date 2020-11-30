@@ -1,0 +1,41 @@
+include ../src/make.inc
+include make.inc
+
+.SUFFIXES:
+.SUFFIXES: .x .f90 .F90
+
+all : example_sdden.x \
+      example_szden.x \
+      example_pddbc.x \
+      example_pzdbc.x \
+      example_sdden_wrapper.x \
+      example_szden_wrapper.x \
+      example_pddbc_wrapper.x \
+      example_pzdbc_wrapper.x
+
+example_sdden.x : example_sdden.F90
+
+example_szden.x : example_szden.F90
+
+example_pddbc.x : example_pddbc.F90
+
+example_pzdbc.x : example_pzdbc.F90
+
+example_sdden_wrapper.x : example_sdden_wrapper.F90
+
+example_szden_wrapper.x : example_szden_wrapper.F90
+
+example_pddbc_wrapper.x : example_pddbc_wrapper.F90
+
+example_pzdbc_wrapper.x : example_pzdbc_wrapper.F90
+
+clean : 
+	rm -f *.x
+
+LINK_MACRO = $< -I$(BUILDPATH)/include -I$(PSPINCLUDEPATH) $(LINALG_INCLUDES) $(BUILDPATH)/lib/$(LIBNAME) $(PSPLIB) $(LINALG_LIBS) -o $@
+
+.F90.x : 
+	$(FORTRAN) $(OPTS) $(FPPFLAGS) $(LINK_MACRO)
+
+.f90.x : 
+	$(FORTRAN) $(OPTS) $(LINK_MACRO)

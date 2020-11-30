@@ -1,0 +1,2 @@
+nao2gto_update_hfx: use nusc internally and meshsubs
+nao2gto_transfer: read FDF properly

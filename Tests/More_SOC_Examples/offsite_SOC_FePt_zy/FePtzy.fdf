@@ -1,0 +1,72 @@
+SystemName              FePt-L1_0
+SystemLabel             FePtzy
+NumberOfAtoms           2
+NumberOfSpecies         2
+%block Chemical_Species_label
+        1       26      Fe_fept_SOC
+        2       78      Pt_fept_SOC
+%endblock Chemical_Species_label
+
+PAO.EnergyShift  100 meV
+PAO.SplitNorm      0.15
+PAO.OldStylePolOrbs F
+Restricted.Radial.Grid  F
+%Block PAO.Basis
+ Fe_fept_SOC   2
+   n=4   0   2   P
+    0.0   0.0
+   n=3   2   2
+    0.0   0.0
+ Pt_fept_SOC   2
+   n=6   0   2   P
+    0.0   0.0
+   n=5   2   2
+    0.0   0.0
+%EndBlock PAO.Basis
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+%block LatticeVectors
+    2.793068700    0.000000000    0.000000000
+    0.000000000    2.793068700    0.000000000
+    0.000000000    0.000000000    3.792000000
+%endblock LatticeVectors
+LatticeConstant  1.0 Ang
+
+%block AtomicCoordinatesAndAtomicSpecies
+    1.396535500    1.396535500    0.000000000  1   
+    0.000000000    0.000000000    1.896000000  2   
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+Spin SO
+
+%block DM.InitSpin
+ 1  +2.   90.  90.
+ 2  +1.   90.  90.
+%endblock DM.InitSpin
+
+
+%block kgrid_Monkhorst_Pack
+  21   0   0    0.0
+   0  21   0    0.0
+   0   0  11    0.0
+%endblock kgrid_Monkhorst_Pack
+
+xc.functional           GGA
+xc.authors              PBE
+MeshCutoff              1400. Ry
+SolutionMethod          diagon
+ElectronicTemperature   1 meV
+
+DM.Tolerance            1.0E-5
+MaxSCFIterations        600
+DM.MixingWeight         0.005
+DM.NumberPulay          8
+DM.UseSaveDM            T
+DM.MixSCF1  F
+DM.NumberKick           25
+#Diag.DivideAndConquer   F
+MixHamiltonian T
+
+MullikenInSCF  T
+WriteForces            T
+WriteCoorStep          T

@@ -1,0 +1,55 @@
+SystemName         Germanium
+SystemType         Bulk
+SystemLabel        Ge
+NumberOfAtoms      9
+NumberOfSpecies    2
+
+%block ChemicalSpeciesLabel
+ 1  32  Ge      # Species index, atomic number, species label
+ 2   1  H  
+%endblock ChemicalSpeciesLabel
+
+MaxSCFIterations       100
+DM.MixingWeight        0.2
+DM.NumberPulay           3
+DM.Tolerance         1.d-4
+MeshCutoff           100.0  Ry 
+SolutionMethod       Diagon
+Diag.DivideAndConquer false
+#SpinPolarized
+TDED.WF.Initialize
+
+PAO.BasisSize SZ
+
+xc.functional         LDA           # Exchange-correlation functional
+xc.authors            CA           # Exchange-correlation version
+
+LatticeConstant   5.590  Ang
+
+%block LatticeVectors
+1.0 0.0 0.0
+0.0 1.0 0.0
+0.0 0.0 1.0
+%endblock LatticeVectors
+
+%block kgrid_Monkhorst_Pack
+1 0 0 0.0
+0 1 0 0.0
+0 0 2 0.0
+%endblock kgrid_Monkhorst_Pack
+
+
+
+AtomicCoordinatesFormat Bohr
+
+%block AtomicCoordinatesAndAtomicSpecies
+0.000000000       0.000000000       0.000000000    1
+2.640893312       2.640893312       2.640893312    1
+0.000000000       5.281786623       5.281786623    1
+5.281786623       0.000000000       5.281786623    1
+5.281786623       5.281786623       0.000000000    1
+2.640893312       7.922679935       7.922679935    1
+7.922679935       2.640893312       7.922679935    1
+7.922679935       7.922679935       2.640893312    1
+0.000000000       1.320400000       0.000000000    2
+%endblock AtomicCoordinatesAndAtomicSpecies

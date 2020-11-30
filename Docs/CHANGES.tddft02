@@ -1,0 +1,571 @@
+2017-10-05  18:45 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-46
+
+Disabled substeps when not extrapolating.
+
+* and some cosmetic changes. 
+
+modified:
+
+  Src/cranknic_evolg.F90
+  Src/cranknic_evolk.F90
+
+2017-10-04  16:55 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-45
+
+Small issue with restart fixed.
+
+modified:
+
+  Src/iotdxv.F
+  Src/struct_init.F
+
+2017-10-04  16:00 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-44
+
+A flag added to chose between matrix inversion options.
+
+* and some cosmetic changes.
+
+modified:
+
+  Docs/siesta.tex
+  Src/cranknic_evolg.F90
+  Src/cranknic_evolk.F90
+  Src/read_options.F90
+  Src/siesta_options.F90
+  Src/units.f90
+
+2017-10-04  14:05 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-43
+
+Updated the test references.
+
+removed:
+
+  Tests/TDDFT_Ge/Ge.XV
+
+added:
+
+  Tests/TDDFT_Ge/Ge.TDXV
+
+modified:
+
+  Src/struct_init.F
+  Tests/Reference/TDDFT_Ge1.out
+  Tests/Reference/TDDFT_Ge2.out
+  Tests/Reference/TDDFT_h2o1.out
+  Tests/Reference/TDDFT_h2o2.out
+  Tests/test_tddft.mk
+
+2017-10-04  12:15 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-42
+
+Fixed a serial compilation issue.
+
+modified:
+
+  Src/m_initwf.F90
+
+2017-10-04  02:25 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-41
+
+Merged Nick's fixes to TDDFT
+
+*Fixes for running TDDFT branch on my box, reduced memory requirement
+
+2017-10-02  15:25 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-40
+
+Matrix inverse in Crank-Nicolson changed.
+
+* Now used pzgesv.
+
+added:
+
+  Src/m_inversemm.F90
+
+modified:
+
+  Src/Makefile
+  Src/cranknic_evolg.F90
+
+2017-10-01  21:00 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-39
+
+TDDFT start/restart with SystemLabel.TDXV
+
+modified:
+
+  Docs/siesta.tex
+  Src/Makefile
+  Src/struct_init.F
+
+2017-09-30  21:05 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-38
+
+Added the writting of SystemLabel.TDXV file.
+
+* In state_init for TDDFT start or restart.
+
+added:
+
+  Src/iotdxv.F
+
+modified:
+
+  Src/Makefile
+  Src/state_init.F
+
+2017-09-30  12:55 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-37
+
+Undone the XV change for tddft-restart.
+
+*Fix for the restart in the following revision.
+
+modified:
+
+  Src/dynamics.f
+  Src/read_options.F90
+  Src/siesta_move.F
+  Src/siesta_options.F90
+
+2017-09-27  14:05 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-36
+
+Merged with trunk-633
+
+2017-08-30  16:05 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-35
+
+Merged with trunk-630
+
+2017-08-29  16:00 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-34
+
+Fixed the inconsistency in restart.
+
+modified:
+
+  Docs/siesta.tex
+  Src/dynamics.f
+  Src/read_options.F90
+  Src/siesta_move.F
+  Src/siesta_options.F90
+  Src/siesta_tddft.F90
+
+2017-08-18  20:40 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-33
+
+Fixed a small bug causing memory leak.
+
+modified:
+
+  Src/cranknic_evolk.F90
+  Src/m_initwf.F90
+
+2017-08-18  17:40 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-32
+
+Fixed a small bug causing memory leak.
+
+modified:
+
+  Src/cranknic_evolk.F90
+
+2017-06-29  14:20 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-31
+
+Updated the tests to reflect recent changes.
+
+modified:
+
+  Tests/TDDFT_Ge/TDDFT_Ge2.fdf
+  Tests/TDDFT_h2o/TDDFT_h2o2.fdf
+
+2017-06-29  14:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-30
+
+Smooth restart from saved wavefunctions.
+
+* TDDFT calculation can be restarted from a previous completed simulation.
+
+modified:
+  Src/m_initwf.F90
+  Src/m_iotddft.F90
+  Src/siesta_tddft.F90
+  Src/wavefunctions.F90
+
+2017-06-29  12:40 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-29
+
+Small bug fix while saving wavefunctions.
+
+modified:
+  Src/siesta_tddft.F90
+
+2017-06-27  18:00 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-28
+
+Changed the logic of TDED and MD time steps.
+
+* MD time step is now TDED time step multiplied by number of TDED steps.
+* Wavefunctions can be saved, optionally, at the end of a simulation.
+* Updated the manual to reflect above changes.
+
+modified:
+
+  Docs/siesta.tex
+  Src/dynamics.f
+  Src/m_initwf.F90
+  Src/read_options.F90
+  Src/siesta_options.F90
+  Src/siesta_tddft.F90
+
+2017-06-23  15:45 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-27
+
+A small bug fix in MatrixSwitch compilation. 
+
+modified:
+
+  Src/MatrixSwitch/src/Makefile
+
+2017-06-23  15:40 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-26
+
+Small bug fix in an erroneous call to rdiag. 
+
+modified:
+
+  Src/m_initwf.F90
+  Src/siesta_tddft.F90
+
+2017-06-21  16:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-25
+
+Fixed a small bug in calculations of TD energy density matrix.
+
+modified:
+
+  Src/wavefunctions.F90
+
+2017-06-12  13:45 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-24
+
+Fixed a small compilation bug.
+
+modified:
+
+  Src/Makefile
+
+2017-06-09  16:30 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-23
+
+Fixed the missing calculation of energy density matrix.
+
+modified:
+
+  Src/cranknic_evolg.F90
+  Src/siesta_tddft.F90
+  Src/wavefunctions.F90
+
+2017-06-08  12:30 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-22
+
+Merged with trunk-621
+
+2017-06-01  15:20 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-21
+
+Updated the MatrixSwitch to latest version.
+
+* No change in functionality
+
+removed:
+  Src/MatrixSwitch/README.md
+  Src/MatrixSwitch/examples/Makefile
+  Src/MatrixSwitch/examples/example1.F90
+  Src/MatrixSwitch/examples/example2.F90
+  Src/MatrixSwitch/examples/example3.F90
+  Src/MatrixSwitch/examples/example4.F90
+
+added:
+  Src/MatrixSwitch/.gitignore
+  Src/MatrixSwitch/AUTHORS
+  Src/MatrixSwitch/COPYING
+  Src/MatrixSwitch/ChangeLog
+  Src/MatrixSwitch/INSTALL
+  Src/MatrixSwitch/Makefile.am
+  Src/MatrixSwitch/NEWS
+  Src/MatrixSwitch/README
+  Src/MatrixSwitch/autogen.sh
+  Src/MatrixSwitch/config/
+  Src/MatrixSwitch/config/data/
+  Src/MatrixSwitch/config/data/MatrixSwitch-config.yaml.in
+  Src/MatrixSwitch/config/data/MatrixSwitch.pc.in
+  Src/MatrixSwitch/config/m4/
+  Src/MatrixSwitch/config/m4/acx_mpi.m4
+  Src/MatrixSwitch/config/m4/fortran.m4
+  Src/MatrixSwitch/config/m4/linalg.m4
+  Src/MatrixSwitch/config/m4/mpi.m4
+  Src/MatrixSwitch/config/m4/pspBLAS.m4
+  Src/MatrixSwitch/config/scripts/
+  Src/MatrixSwitch/config/scripts/markdown
+  Src/MatrixSwitch/configure.ac
+  Src/MatrixSwitch/doc/
+  Src/MatrixSwitch/doc/Doxyfile
+  Src/MatrixSwitch/doc/Makefile.am
+  Src/MatrixSwitch/doc/configuring-MatrixSwitch.md
+  Src/MatrixSwitch/doc/contributing-to-MatrixSwitch.md
+  Src/MatrixSwitch/doc/data/
+  Src/MatrixSwitch/doc/data/msw_footer.html
+  Src/MatrixSwitch/doc/data/msw_header.html
+  Src/MatrixSwitch/doc/hacking-the-build-system.md
+  Src/MatrixSwitch/examples/Makefile.am
+  Src/MatrixSwitch/examples/Makefile.manual
+  Src/MatrixSwitch/examples/example_pddbc.F90
+  Src/MatrixSwitch/examples/example_pddbc_wrapper.F90
+  Src/MatrixSwitch/examples/example_pzdbc.F90
+  Src/MatrixSwitch/examples/example_pzdbc_wrapper.F90
+  Src/MatrixSwitch/examples/example_sdden.F90
+  Src/MatrixSwitch/examples/example_sdden_wrapper.F90
+  Src/MatrixSwitch/examples/example_szden.F90
+  Src/MatrixSwitch/examples/example_szden_wrapper.F90
+  Src/MatrixSwitch/examples/make.inc
+  Src/MatrixSwitch/quickcheck.sh
+  Src/MatrixSwitch/src/Makefile.am
+  Src/MatrixSwitch/src/Makefile.manual
+  Src/MatrixSwitch/src/MatrixSwitch_m_add.F90
+  Src/MatrixSwitch/src/MatrixSwitch_m_copy.F90
+  Src/MatrixSwitch/src/MatrixSwitch_m_register.F90
+  Src/MatrixSwitch/src/MatrixSwitch_m_set.F90
+  Src/MatrixSwitch/src/MatrixSwitch_mm_multiply.F90
+  Src/MatrixSwitch/src/MatrixSwitch_ops.F90
+  Src/MatrixSwitch/src/MatrixSwitch_wrapper.F90
+  Src/MatrixSwitch/src/MatrixSwitch_wrapper_params.F90
+  Src/MatrixSwitch/src/dependencies.mf
+  Src/MatrixSwitch/src/make.inc
+  Src/MatrixSwitch/wipeout.sh
+
+modified:
+  Src/MatrixSwitch/examples/make.inc.example
+  Src/MatrixSwitch/src/Makefile
+  Src/MatrixSwitch/src/MatrixSwitch.F90
+  Src/MatrixSwitch/src/make.inc.example
+  Src/cranknic_evolg.F90
+  Src/cranknic_evolk.F90
+  Src/m_initwf.F90
+  Src/sankey_change_basis.F90
+  Src/siesta_tddft.F90
+  Src/wavefunctions.F90
+
+2017-05-30  15:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-20
+
+Fixed the inconsistency in the use of XC functionals.
+
+modified:
+
+  Tests/TDDFT_h2o/TDDFT_h2o1.fdf
+  Tests/TDDFT_h2o/TDDFT_h2o2.fdf
+
+2017-05-30  14:40 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-19
+
+Bug fix in call to cdiag and rdiag subroutines.
+
+modified:
+
+  Src/m_initwf.F90
+
+2017-05-18  17:20 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-18
+
+Fixed some formatting in the manual.
+
+modified:
+
+  Docs/siesta.tex
+
+2017-05-18  15:20 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-17
+
+Semantic changes in the RT-TDDFT options.
+
+* Updated the tests accordinlgy
+
+modified:
+
+  Docs/siesta.tex
+
+  Src/m_iotddft.F90
+  Src/read_options.F90
+
+  Tests/Reference/TDDFT_Ge1.out
+  Tests/Reference/TDDFT_Ge2.out
+  Tests/Reference/TDDFT_h2o1.out
+  Tests/Reference/TDDFT_h2o2.out
+  Tests/TDDFT_Ge/TDDFT_Ge1.fdf
+  Tests/TDDFT_Ge/TDDFT_Ge2.fdf
+  Tests/TDDFT_h2o/TDDFT_h2o1.fdf
+  Tests/TDDFT_h2o/TDDFT_h2o2.fdf
+
+2017-05-16  18:20 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-16
+
+Updated the development notes.
+
+modified:
+
+  Docs/branch-changes/NOTES.tddft
+
+2017-05-16  18:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-15
+
+Updated RT-TDDFT section of the manual.
+
+modified:
+
+  Docs/siesta.tex
+
+2017-05-16  16:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-14
+
+Added tests for k-point run and updated gamma-point tests
+
+* No change in functionality
+
+added:
+
+  Tests/Reference/TDDFT_Ge1.out
+  Tests/Reference/TDDFT_Ge2.out
+  Tests/TDDFT_Ge/
+  Tests/TDDFT_Ge/Ge.XV
+  Tests/TDDFT_Ge/Makefile
+  Tests/TDDFT_Ge/TDDFT_Ge.pseudos
+  Tests/TDDFT_Ge/TDDFT_Ge1.fdf
+  Tests/TDDFT_Ge/TDDFT_Ge2.fdf
+
+modified:
+
+  Src/m_initwf.F90
+  Tests/Makefile
+  Tests/Reference/TDDFT_h2o1.out
+  Tests/Reference/TDDFT_h2o2.out
+  Tests/test_tddft.mk
+
+2017-05-13  17:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-13
+
+Bug fixed in k-point calculations.
+
+modified:
+  Src/cranknic_evolk.F90
+  Src/sankey_change_basis.F90
+
+2017-05-13  15:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-11
+
+A smalle bug fixed.
+
+modified:
+  Src/cranknic_evolg.F90
+  Src/sankey_change_basis.F90
+
+2017-05-10  18:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-10
+
+Merged with trunk-619
+
+2017-05-08  13:10 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-09
+
+Modified m_initwf to improve messaging and readability.
+
+* No change in functionality
+
+modified:
+
+  Src/Makefile
+  Src/m_initwf.F90
+  Src/siesta_forces.F90
+
+2017-05-06  17:00 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-08
+
+Added the calculation of <psi(t)|H(t)|psi(t)>.
+
+* For k-point calculations. 
+
+modified:
+
+  Src/cranknic_evolg.F90
+  Src/cranknic_evolk.F90
+  Src/m_iotddft.F90
+
+2017-05-05  17:40 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-07
+
+Added k-point sampling for tddft calculations
+
+* Previous version was limited to gamma point calculations. 
+
+removed:
+
+  Src/evolk.F90
+
+added:
+
+  Src/cranknic_evolk.F90
+
+modified:
+
+  Src/Makefile
+  Src/cranknic_evolg.F90
+  Src/m_evolve.F90
+  Src/sankey_change_basis.F90
+  Src/siesta_tddft.F90
+  Src/wavefunctions.F90
+
+2017-04-24  20:00 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-06
+
+Some cosmetic changes.
+
+* No change in functionality
+
+removed:
+  Src/m_cn_evolg.F90
+added:
+  Src/cranknic_evolg.F90
+modified:
+  Src/Makefile
+  Src/m_evolve.F90
+
+2017-04-21  16:30 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-05
+
+Fixed and parallelized the calculation of <psi(t)|H(t)|psi(t)>.
+
+* The output is saved in <systemlabel>.eigen_vs_time
+
+modified:
+  Src/Makefile
+  Src/evolk.F90
+  Src/m_cn_evolg.F90
+  Src/m_iotddft.F90
+
+2017-04-20  16:15 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-04
+
+Modified evolg.F90 to improve messaging and delete redundencies
+
+* No change in functionality
+* evolg.F90 is changed to cn_evolg.F90 and placed in the module m_cn_evolg.F90
+
+removed:
+  Src/evolg.F90
+added:
+  Src/m_cn_evolg.F90
+modified:
+  Src/Makefile
+  Src/m_evolve.F90
+
+2017-04-18  17:30 CET Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-03
+
+Modified m_evolve.F90 to improve code readability and deleted redundencies.
+
+* No change in functionality
+
+modified:
+
+  Src/Makefile
+  Src/evolg.F90
+  Src/m_evolve.F90
+  Src/siesta_tddft.F90
+
+2017-03-30  19:00 PKT Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-02
+
+Simplified and changed name of the changebasis subroutine.
+
+* No change in functionality
+* Improved code readibilty
+* Prepared it for consistent future developements
+
+removed:
+  Src/changebasis.F90
+added:
+  Src/sankey_change_basis.F90
+modified:
+  Src/Makefile
+  Src/siesta_tddft.F90
+
+2017-03-23  21:00 PKT Rafi Ullah <rraffiu@gmail.com>  trunk-611-tddft02-01
+
+Added Hamiltonian extrapolation within Crank-Nicolson integrator.
+
+modified:
+  Docs/siesta.tex
+  Src/evolg.F90
+  Src/read_options.F90
+  Src/siesta_options.F90

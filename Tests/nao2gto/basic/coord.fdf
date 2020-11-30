@@ -1,0 +1,13 @@
+LatticeConstant      5.43 Ang
+
+%block LatticeVectors
+  0.00  0.50  0.50
+  0.50  0.00  0.50
+  0.50  0.50  0.00
+%endblock LatticeVectors
+
+AtomicCoordinatesFormat   Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+  0.00  0.00  0.00        1
+  0.25  0.25  0.25  1
+%endblock AtomicCoordinatesAndAtomicSpecies

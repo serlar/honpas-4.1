@@ -1,0 +1,9 @@
+To plot the bands:
+
+gnubands -G -F -b 1 -B 10 ge_soc_bands.bands 2>| bands.gplot 1>| bands.dat
+
+and then:
+
+ gnuplot -persist bands.gplot
+
+

@@ -1,0 +1,17 @@
+Minimal compilation and linking instructions for CheSS
+======================================================
+
+1) Download and unpack the latest release of CheSS from Launchpad: https://launchpad.net/chess
+   More detailed instructions for this step are shipped together with CheSS.
+   In the following we assume that your main installation directory is called <build-dir>.
+
+2) In your arch.make file you should add the following (without the ""):
+   FPPFLAGS: add "-DSIESTA__CHESS"
+   LIBS: add "<build-dir>/install/lib/libCheSS-1.a"
+         add "<build-dir>/install/lib/libfutile-1.a"
+         add "<build-dir>/install/lib/libyaml.a"
+   INCFLAGS: add "-I<build-dir>/install/include"
+
+3) Compile SIESTA as usual.
+   You can check whether the installation has been successful by running the CheSS test
+   that you can find in the folder Tests.

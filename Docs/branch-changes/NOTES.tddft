@@ -1,0 +1,57 @@
+
+This branch re-implements real time - time dependent density functional theory
+in Siesta. This implementation is based on an earlier serial implementation 
+by Daniel Sanchez-Portal ca. 2000-01 which had never been formally merged into
+siesta. 
+
+* This branch works in parallel. 
+* Calculations at gamma-point and with k-point sampling is poossible.
+* Optional extrapolation of Hamiltonian between time steps.
+* Parallel caculation of <phi(t)|H(t)|phi(t)>.
+
+================= Technical details ========================================
+
+Initial State:
+--------------
+As explained in the documentation, tddft calculations require two runs. 
+The first run first finds usual SCF ground state, and then, with proper flags
+goes over the wavefunctions space. The wavefunction space is truncated 
+to only-occupied wavefunctions. After this the program does one final 
+diagonalization and saves the wavefucntions on the disk. It is important
+to note that the program in its current form does not allow partially occumpied 
+orbitals. These wavefunctions serve as the initial state. 
+
+Time-dependent Electron Dynamics:
+---------------
+The second run, again with appropriate input options, reads the initial state 
+(these wavefunctions can be from a previous tddft run, hence providing 
+a way for a restart). These wavefunctions are then time-evolved by integrating 
+time-dependent Kohn-Sham (TDKS) equations. The first-order Crank-Nicolson 
+integrator is used to solve TDKS. More integrators can be tried in future. 
+There is a loop over this process to just do the time-dependent electron dynamics
+(TDED).
+
+Ehrenfest Dynamics:
+------------------
+To perform the Ehrenfest dynamics, after each TDED step, the program moves atoms.
+Nothing out of the ordinary at the moment, just defaults to Verlet. However, a 
+better way of evaluating forces is due in the future. After moving the atoms the 
+program does transform (Lowden transformation) instataneous wavefunctions into new (moved) 
+basis (theoretically this is not well founded! room for future improvements).
+Then it does the TDED again.
+
+Parallelisation:
+---------------
+Both the time-evolution and basis transformation involve matrix operations, like
+multiplication, addition, inversion and diagonalization. We utilize MatrixSwitch
+module by Fabiano Corsetti to exploit parallel matrix storage and manipulation within
+Scalapack library. 
+
+Notes:
+------
+1. Above explained procedures are carried out in different subroutines.
+2. Minimal to no interference with normal working of siesta. 
+3. All the added subroutines are either newly written or modified from the obsolete
+   routines of Daniel's version. 
+4. None of the existing siesta subroutines is significanly modified.
+5. The program fully utilizes the underlying siesta setup (grid, dhscf). 

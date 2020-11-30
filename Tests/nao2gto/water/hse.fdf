@@ -1,0 +1,6 @@
+ERIs.Tolerance        1.0d-6
+DERIs.Tolerance       1.0d-6
+pairlist.Tolerance    1.0d-6
+farfield  .true.
+farfield.Tolerance   1.0d-6
+#DMcutforERI .true.

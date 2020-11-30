@@ -1,0 +1,6 @@
+global.Tolerance      1.0d-6
+Schwarz.Tolerance     1.0d-6
+Pairlist.Tolerance    1.0d-6
+ERIs.store            1.0d-6
+Farfield  .true.
+DM_trunc  .true.

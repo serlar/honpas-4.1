@@ -1,0 +1,52 @@
+SystemName      Bulk Silisin
+SystemLabel     si
+NumberOfSpecies	        1
+NumberOfAtoms           2
+%block ChemicalSpeciesLabel
+  1  14  Si
+%endblock ChemicalSpeciesLabel
+
+%include coord.fdf
+
+PAO.BasisSize SZ
+#User.Basis .true.
+WriteIonPlotFiles .true.
+
+xc.functional      GGA    # Default vaxc.authors         HSE    # Default value
+xc.authors         HSE06    # Default value
+
+ElectronicTemperature  25 meV
+
+#DM.UseSaveDM            T
+#Blocksize 2
+MeshCutoff              150. Ry     # Equivalent planewave cutoff for the grid
+MaxSCFIterations        50         # Maximum number of SCF iterations per step
+DM.MixingWeight         0.7         # New DM amount for next SCF cycle
+DM.Tolerance            1.d-4       # Tolerance in maximum difference
+                                    # between input and output DM
+DM.NumberPulay          3          # Number of SCF steps between pulay mixing
+
+# Eigenvalue problem: order-N or diagonalization
+
+SolutionMethod          diagon      # OrderN or Diagon
+
+
+%block kgrid_Monkhorst_Pack
+   8  0  0  0.5
+   0  8  0  0.5
+   0  0  8  0.5
+%endblock kgrid_Monkhorst_Pack
+
+MD.TypeOfRun            cg          # Type of dynamics:
+MD.NumCGsteps  0
+#MD.VariableCell   .true.
+MD.MaxForceTol  0.01 eV/Ang
+WriteMDXmol   .true.
+WriteForces  .true.
+WriteCoorStep
+
+%include bands.fdf
+
+%include hse.fdf
+
+%include nao2gto.fdf

@@ -1,0 +1,9 @@
+BandLinesScale ReciprocalLatticeVectors
+%block BandLines
+1    0.5  0.5  0.5     L
+40   0.0  0.0  0.0     \Gamma
+40   0.5  0.0  0.5     X
+40   0.5  0.25  0.75  W
+40   0.375 0.375 0.75  K
+40   0.0  0.0  0.0     \Gamma
+%endblock BandLines

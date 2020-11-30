@@ -1,0 +1,75 @@
+%YAML 1.1
+---
+timestamp: "@msw_timestamp@"
+
+target:
+    cpu: "@target_cpu@"
+    vendor: "@target_vendor@"
+    os: "@target_os@"
+
+compilers:
+    CPP: "@CPP@"
+    CPPFLAGS: "@CPPFLAGS@"
+    CC: "@CC@"
+    MPICC: "@MPICC@"
+    CFLAGS: "@CFLAGS@"
+    FC: "@FC@"
+    MPIFC: "@MPIFC@"
+    FCFLAGS: "@FCFLAGS@"
+    LDFLAGS: "@LDFLAGS@"
+    LIBS: "@LIBS@"
+
+defaults:
+    conv_enable: "@msw_conv_enable_def@"
+    debug_enable: "@msw_debug_enable_def@"
+    examples_enable: "@msw_examples_enable_def@"
+    linalg_enable: "@msw_linalg_enable_def@"
+    mpi_enable: "@msw_mpi_enable_def@"
+    linalg_incs: "@msw_linalg_incs_def@"
+    linalg_libs: "@msw_linalg_libs_def@"
+    psp_enable: "@msw_psp_enable_def@"
+
+options:
+    enable_conv: "@enable_conv@"
+    enable_debug: "@enable_debug@"
+    enable_examples: "@enable_examples@"
+    with_linalg: "@with_linalg@"
+    with_mpi: "@with_mpi@"
+    with_psp: "@with_psp@"
+
+triggers:
+    conv_enable: "@msw_conv_enable@"
+    debug_enable: "@msw_debug_enable@"
+    examples_enable: "@msw_examples_enable@"
+    linalg_enable: "@msw_linalg_enable@"
+    mpi_enable: "@msw_mpi_enable@"
+    psp_enable: "@msw_psp_enable@"
+
+inits:
+    conv: "@msw_conv_type@"
+    debug: "@msw_debug_type@"
+    examples: "@msw_examples_type@"
+    linalg: "@msw_linalg_type@"
+    mpi: "@msw_mpi_type@"
+    psp: "@msw_psp_type@"
+
+deps:
+    linalg_incs: "@msw_linalg_incs@"
+    linalg_libs: "@msw_linalg_libs@"
+    mpi_incs: "@msw_mpi_incs@"
+    mpi_libs: "@msw_mpi_libs@"
+    psp_incs: "@msw_psp_incs@"
+    psp_libs: "@msw_psp_libs@"
+
+linalg_internals:
+    has_lapack: "@msw_linalg_has_lapack@"
+    has_scalapack: "@msw_linalg_has_lapack@"
+
+mpi_internals:
+    cc_set: "@msw_mpi_cc_set@"
+    cc_wrap: "@msw_mpi_cc_wrap@"
+    fc_set: "@msw_mpi_fc_set@"
+    fc_wrap: "@msw_mpi_fc_wrap@"
+    fc_wrap: "@msw_mpi_incs@"
+    fc_wrap: "@msw_mpi_libs@"
+

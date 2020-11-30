@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: MatrixSwitch
+Description: Library providing matrix storage and operations for physical applications.
+Version: @VERSION@
+Libs: -L${libdir} -lMatrixSwitch
+Cflags: -I${includedir}

@@ -1,0 +1,59 @@
+SystemName              Pt2 z-alignment z
+SystemLabel             Pt2zz
+
+Spin   SO
+
+NumberOfAtoms           2
+NumberOfSpecies         1
+%block Chemical_Species_label
+        1       78      Pt_pt2_SOC
+%endblock Chemical_Species_label
+
+PAO.EnergyShift  100 meV
+PAO.SplitNorm      0.15
+PAO.OldStylePolOrbs F
+Restricted.Radial.Grid  F
+%Block PAO.Basis
+Pt_pt2_SOC          2          
+ n=6   0    2   P   1  
+   7.158    6.085
+   1.000    1.000
+ n=5   2    2         
+   5.044    3.098
+   1.000    1.000
+%EndBlock PAO.Basis
+
+AtomicCoordinatesFormat NotScaledCartesianAng
+LatticeConstant  20.0 Ang
+%block LatticeVectors
+     1.00      .00      .00
+      .00     1.00      .00
+      .00      .00     1.00
+%endblock LatticeVectors
+
+%block AtomicCoordinatesAndAtomicSpecies
+      0.00000   0.00000   -1.19940   1
+      0.00000   0.00000    1.19940   1
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+XC.functional           GGA
+XC.authors              PBE
+
+MeshCutoff              500. Ry
+
+SolutionMethod          diagon
+
+ElectronicTemperature   1 meV
+DM.Tolerance            1.0E-6
+MaxSCFIterations        1000
+DM.MixingWeight         0.005
+DM.MixSCF1  F
+DM.UseSaveDM    T
+MixHamiltonian  T
+DM.NumberPulay          6
+DM.NumberKick           25
+
+WriteMullikenPop       1
+WriteEigenvalues       T
+WriteForces            T
+WriteCoorStep          T
